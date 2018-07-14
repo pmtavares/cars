@@ -2,16 +2,39 @@ package com.cars.models;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.persistence.*;
+
+@Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Car {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+		
 	private String name;
 	private String email;
 	private String phone;
 	private String model;
 	private String plateNumber;
 	private BigDecimal price;
+	
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM-dd-yyyy")
 	private Date purchaseDate;
 	private boolean contact;
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 	
 	public String getName() {
 		return name;
