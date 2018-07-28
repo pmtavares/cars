@@ -6,7 +6,7 @@ class Counter extends Component {
   };
 
   styles = {
-    fontSize: 10,
+    fontSize: 20,
     fontWeight: "bold"
   };
 
